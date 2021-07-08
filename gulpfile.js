@@ -90,7 +90,7 @@ exports.addWebpToHtml = addWebpToHtml;
 const browsersync = () => {
     _bs.init({
         server: {
-            baseDir: ".",
+            baseDir: "./dist/",
         },
         files: ["dist/*.html", "dist/**/*.js", "dist/**/*.css"],
         notify: false,
