@@ -1,0 +1,103 @@
+.slider {
+    margin-top: 85px;
+    &__wrapper {
+        position: relative;
+    }
+    &__button-prev,
+    &__button-next {
+        z-index: 999;
+        position: absolute;
+        top: 50%;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16);
+        &:hover {
+            background: rgb(240, 240, 240);
+        }
+        @media(max-width: 710px) {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    &__button-prev {
+        left: -24px;
+        @media(max-width: 710px) {
+            left: -12px;
+        }
+    }
+    &__button-next {
+        right: -24px;
+        @media(max-width: 710px) {
+            right: -12px;
+        }
+    }
+    &__slide {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+        &:hover {
+            box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16);
+        }
+    }
+    &__pagination {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.slide {
+    &__img {
+        max-width: 390px;
+        width: 100%;
+    }
+    &__info {
+        padding: 16px;
+    }
+    &__title {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 120%;
+        color: #3A3A3A;
+        margin-bottom: 8px;
+        @media(max-width: 710px) {
+            font-size: 18px;
+        }
+    }
+    &__data {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 150%;
+        color: #898989;
+    }
+}
+
+.swiper-pagination-bullet {
+    width: 27px;
+    height: 27px;
+    margin-right: 10px;
+    background-image: url('../img/bullet.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    background-color: transparent;
+    &:nth-last-child(1) {
+        margin-right: 0;
+    }
+}
+
+.swiper-pagination-bullet-active {
+    background-image: url('../img/active_bullet.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+}
