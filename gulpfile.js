@@ -191,4 +191,4 @@ const startWatch = () => {
 };
 
 //? BUILD
-exports.default = parallel(convertFonts, fontsStyle, concatCSS, compressImgs, concatJSLibs, moveJS, fileinclude, sassScss, browsersync, startWatch);
+exports.default = parallel( concatCSS, compressImgs, concatJSLibs, moveJS, convertFonts, fontsStyle, fileinclude, sassScss, browsersync, startWatch);
