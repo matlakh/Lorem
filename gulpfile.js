@@ -92,7 +92,7 @@ const browsersync = () => {
         server: {
             baseDir: "./dist/",
         },
-        files: ["dist/*.html", "dist/**/*.js", "dist/**/*.css"],
+        files: ["dist/*.html", "dist/*.js", "dist/*.css"],
         notify: false,
         open: "local",
         ghostMode: {
@@ -167,11 +167,6 @@ const compressImgs = () => {
         .pipe(dest("dist/img"));
 };
 //! JS
-const concatJSLibs = () => {
-    return src("src/js/*.js")
-        .pipe(_jsconcat("bundle.js"))
-        .pipe(dest("dist/js/vendors"));
-};
 
 function moveJS() {
     return src("src/js/*.js").pipe(dest("dist/js"));
@@ -186,9 +181,9 @@ const startWatch = () => {
     watch("src/scss/**/*.scss", sassScss);
     watch("src/fonts/*.ttf", series(convertFonts, fontsStyle));
     watch("src/img/", series(convertToWebp, compressImgs));
-    watch("src/js/*.js", concatJSLibs);
+    watch("src/js/*.js", moveJS);
     watch(["src/css/*.css", "!src/css/style.css"], concatCSS);
 };
 
 //? BUILD
-exports.default = parallel( concatCSS, compressImgs, concatJSLibs, moveJS, convertFonts, fontsStyle, fileinclude, sassScss, browsersync, startWatch);
+exports.default = parallel(concatCSS, compressImgs, moveJS, convertFonts, fontsStyle, fileinclude, sassScss, browsersync, startWatch);
